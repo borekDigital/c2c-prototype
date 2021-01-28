@@ -1,0 +1,13 @@
+# Frontend configuration for local development
+
+{$CLIENT_HOST_WEB} {
+  reverse_proxy {$CLIENT_HOST_SOURCE}:{$CLIENT_PORT} {
+    header_up Host                {$CLIENT_HOST_WEB}
+    header_up X-Real-IP           {remote}
+    header_up X-Forwarded-Host    {$CLIENT_HOST_WEB}
+    header_up X-Forwarded-Server  {$CLIENT_HOST_WEB}
+    header_up X-Forwarded-Port    {port}
+    header_up X-Forwarded-For     {remote}
+    header_up X-Forwarded-Proto   {scheme}
+  }
+}

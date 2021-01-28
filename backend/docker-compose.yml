@@ -1,0 +1,53 @@
+version: "3"
+
+services:
+  postgres:
+    container_name: c2c_postgres
+    image: postgres:alpine
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - database
+
+  pgadmin:
+    links:
+      - postgres:postgres
+    container_name: c2c_pgadmin
+    image: dpage/pgadmin4
+    env_file:
+      - .env
+    ports:
+      - "8080:80"
+    volumes:
+      - postgres-data:/root/.pgadmin
+    networks:
+      - database
+
+  caddy:
+    container_name: c2c_caddy
+    image: caddy:2
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+    networks:
+      - web
+
+networks:
+  database:
+    name: c2c-database
+  web:
+    name: c2c-server
+
+volumes:
+  postgres-data:
+    name: c2c-postgres

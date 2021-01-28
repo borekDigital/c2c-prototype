@@ -36,3 +36,12 @@ dev:
 	$(MAKE) -j 2 dev-backend dev-frontend
 	@echo ---------
 	@echo "\n"
+
+# Stop the whole project
+stop:
+	@echo "\n"
+	@echo Stop Project
+	@echo ------------
+	cd backend && $(MAKE) stop
+	@echo ------------
+	@echo "\n"

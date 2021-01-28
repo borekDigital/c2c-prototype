@@ -14,6 +14,8 @@ but it is not absolutely necessary to get the work done.
 [VS Code](https://marketplace.visualstudio.com/items?itemName=carlos-algms.make-task-provider)
 
 ## Local Development
+Make sure to have [yarn](https://classic.yarnpkg.com/en)
+and [Docker](https://docs.docker.com/get-docker/) (including *docker compose*) installed.
 
 ### Setup
 #### Make command

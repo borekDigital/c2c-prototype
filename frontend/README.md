@@ -7,6 +7,7 @@
 > If you want to start the complete project, follow the [general setup instructions](../README.md)
 
 ## Local Frontend Development
+Make sure to have [yarn](https://classic.yarnpkg.com/en) installed.
 
 ### Setup
 ```bash
