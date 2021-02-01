@@ -18,7 +18,8 @@ import { OrmService } from './orm.service';
         entities: [__dirname + '/../**/*.entity{.ts,.js}'],
         autoLoadEntities: true,
         migrations: ['dist/migration/*.js'],
-        migrationsRun: true,
+        migrationsRun: false, // set true after first release
+        synchronize: true, // set true while initial development
       }),
     }),
   ],

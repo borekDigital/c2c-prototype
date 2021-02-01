@@ -13,6 +13,7 @@ DOCKER_CLEAR = docker rm ${MAKE_DOLLAR}(docker ps -qa --filter name=${PROJECT_PR
 DOCKER_BUILD = docker-compose build --no-cache
 DOCKER_START = docker-compose up -d --force-recreate --remove-orphans
 DOCKER_STOP = docker-compose stop
+DOCKER_DOWN = docker-compose down
 
 # -----------
 # DB commands

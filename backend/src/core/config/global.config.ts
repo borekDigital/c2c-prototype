@@ -2,6 +2,7 @@ import { ConfigModuleOptions } from '@nestjs/config/dist/interfaces';
 import * as Joi from 'joi';
 import { ormConfigValidationSchema } from './orm.config';
 import { corsConfigValidationSchema } from './cors.config';
+import { adminConfigValidationSchema } from '../../admin/config/admin.config';
 
 const validationSchema = Joi.object({
   // base app config
@@ -12,6 +13,9 @@ const validationSchema = Joi.object({
 
   // database config
   ...ormConfigValidationSchema,
+
+  // admin config
+  ...adminConfigValidationSchema,
 
   // cors config
   ...corsConfigValidationSchema,

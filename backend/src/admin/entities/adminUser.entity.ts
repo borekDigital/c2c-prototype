@@ -1,16 +1,16 @@
 import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
-export class Coin extends BaseEntity {
+export class AdminUser extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
-  name: string;
+  email: string;
 
   @Column()
-  year_of_issue: number;
+  encryptedPassword: string;
 
   @Column()
-  country: string;
+  title: 'admin' | 'editor' | 'author';
 }

@@ -1,7 +1,6 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import AdminBro from 'admin-bro';
-import { AdminModule } from '@admin-bro/nestjs';
 import { Database, Resource } from '@admin-bro/typeorm';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
@@ -10,7 +9,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { globalConfig } from './core/config/global.config';
 import { DatabaseModule } from './core/database/database.module';
-import { adminModuleOptions } from './admin/adminModuleOptions';
+import { CustomAdminModule } from './admin/admin.module';
 import { CoinsModule } from './features/coins/coins.module';
 
 AdminBro.registerAdapter({ Database, Resource });
@@ -22,7 +21,7 @@ AdminBro.registerAdapter({ Database, Resource });
     DatabaseModule,
 
     // admin
-    AdminModule.createAdmin(adminModuleOptions),
+    CustomAdminModule,
 
     // static content
     ServeStaticModule.forRoot({
