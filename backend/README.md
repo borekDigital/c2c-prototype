@@ -92,7 +92,8 @@ run `exit` to exit
 ## Admin
 > powered by [AdminBro](https://softwarebrothers.github.io/admin-bro-dev)
 
-*visit http://localhost:4000/admin*
+*visit http://localhost:4000/admin*  
+--> if there aren't any admin users set yet, enter `{SUPER_ADMIN_EMAIL}` and `{SUPER_ADMIN_PASSWORD}`
 
 ## Nest
 For detailed explanation on how things work, run 
